@@ -86,5 +86,9 @@ nav:
   - Assignment Tasks:
       - "Q1: API Endpoint Update (Cube3)": q1-api-documentation.md
       - "Q2: Solana Staking Guide Audit": q2-solana-staking-guide.md
-      - "Q3: RESTful API Redesign": q3-rest-api-redesign.md
+      - "Q3: RESTful API Redesign":
+          - "Architectural Overview & OpenAPI": q3-rest-api-redesign.md
+          - "Q3.1: GET /v2/transfers": q3-1-get-transfers.md
+          - "Q3.2: POST /v2/transfers/batch": q3-2-send-transactions.md
+          - "Q3.3: GET /v2/wallets/{id}/balances": q3-3-get-balances.md
       - "Q4: Work Samples & Portfolio": q4-portfolio-samples.md
