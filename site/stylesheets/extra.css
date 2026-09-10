@@ -1,0 +1,176 @@
+/* Liminal Enterprise Documentation Theme (ReadMe.io Visual Replica) */
+
+:root {
+  --md-primary-fg-color:        #171829;
+  --md-primary-fg-color--dark:  #0f101c;
+  --md-primary-bg-color:        #ffffff;
+  --md-accent-fg-color:         #6d7ee3;
+  --md-accent-fg-color--transparent: rgba(109, 126, 227, 0.15);
+}
+
+/* Dark Palette Overrides (Liminal Midnight Theme) */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color:        #171829;
+  --md-default-bg-color--light:  #1d1f33;
+  --md-default-bg-color--lighter:#242740;
+  --md-default-fg-color:        #e2e8f0;
+  --md-default-fg-color--light:  #94a3b8;
+  --md-code-bg-color:           #0f101c;
+  --md-code-fg-color:           #f8fafc;
+  --md-typeset-a-color:         #818cf8;
+}
+
+/* Header & Brand Logo Adjustments */
+.md-header {
+  background-color: #171829 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.md-nav--primary .md-nav__title {
+  background-color: #171829;
+}
+
+/* HTTP Method Badges (Matching ReadMe API Badges) */
+.api-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--md-code-font-family);
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-right: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.api-post {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.api-get {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.api-put {
+  background-color: #f59e0b;
+  color: #ffffff;
+}
+
+.api-delete {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+/* Status Code Badges */
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 12px;
+  margin-left: 8px;
+}
+
+.status-200, .status-201 {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-400 {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-422 {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Endpoint URL Box Container */
+.endpoint-box {
+  background-color: var(--md-code-bg-color);
+  border-left: 4px solid #6d7ee3;
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  font-family: var(--md-code-font-family);
+  font-size: 0.92rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.endpoint-url {
+  font-weight: 600;
+  word-break: break-all;
+  color: var(--md-default-fg-color);
+}
+
+/* Parameter Required/Optional Pills */
+.param-required {
+  color: #f87171;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  background-color: rgba(239, 68, 68, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.param-optional {
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  background-color: rgba(148, 163, 184, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.param-type {
+  font-family: var(--md-code-font-family);
+  color: #a78bfa;
+  font-size: 0.82rem;
+}
+
+/* Custom Table Polish */
+.md-typeset table:not([class]) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: rgba(109, 126, 227, 0.12);
+  color: var(--md-default-fg-color);
+  font-weight: 700;
+  padding: 10px 14px;
+}
+
+.md-typeset table:not([class]) td {
+  padding: 10px 14px;
+}
+
+/* Feature Card Highlight Container */
+.feature-card {
+  border: 1px solid rgba(109, 126, 227, 0.25);
+  background-color: var(--md-default-bg-color--light);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(109, 126, 227, 0.18);
+}

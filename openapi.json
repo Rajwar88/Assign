@@ -1,0 +1,363 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Liminal API Reference",
+    "version": "2.0.0",
+    "description": "Liminal enterprise digital asset custody, batch transfers, security risk screening, and wallet management API suite."
+  },
+  "servers": [
+    {
+      "url": "https://api-sdk.lmnl.dev",
+      "description": "Production SDK API Server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Transactions",
+      "description": "Send many transactions, batch payouts, and threat screening endpoints."
+    },
+    {
+      "name": "Wallets",
+      "description": "Vault wallet operations and multi-asset balance retrieval."
+    }
+  ],
+  "paths": {
+    "/api/wallet/send-many-transaction": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "Create transaction requests",
+        "description": "Execute single or multiple asset transfers from a v1 withdrawal wallet to destination address(es). Integrates Cube3 Security Inspector for optional real-time threat screening.",
+        "operationId": "sendManyTransaction",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendManyTransactionRequest"
+              },
+              "examples": {
+                "StandardTransfer": {
+                  "summary": "Standard ETH Transfer Request",
+                  "value": {
+                    "wallet": {
+                      "coin": "eth",
+                      "walletId": 14999
+                    },
+                    "transactions": {
+                      "recipientsData": {
+                        "recipients": [
+                          {
+                            "address": "0x017208E63ec387461C7e8f20bA9C6F9Dec939cfe",
+                            "amount": "0.008"
+                          }
+                        ],
+                        "sequenceId": "08d5893b-0066-4619-b7af-a5bae54205d5"
+                      }
+                    },
+                    "screeningFlag": true,
+                    "feeLevel": "market"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Transaction Request Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendManyTransactionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Field Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Threat Screening Blocked (RISK_SCREENING_FAILED)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatScreeningErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/transfers": {
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "Retrieve Transfers Collection",
+        "description": "Retrieve a paginated collection of historical fund transfers with filtering by wallet, status, or asset.",
+        "operationId": "getTransfersV2",
+        "parameters": [
+          {
+            "name": "wallet_id",
+            "in": "query",
+            "description": "Filter by source wallet ID.",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Filter by status (COMPLETED, PENDING, FAILED, BLOCKED).",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of items to return per page.",
+            "required": false,
+            "schema": { "type": "integer", "default": 50 }
+          },
+          {
+            "name": "starting_after",
+            "in": "query",
+            "description": "Cursor pagination object ID.",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of transfers returned",
+            "content": {
+              "application/json": {
+                "example": {
+                  "object": "list",
+                  "data": [
+                    {
+                      "id": "trsf_90812349120",
+                      "object": "transfer",
+                      "wallet_id": "vlt_892341029384",
+                      "amount": "1.500000",
+                      "asset": "ETH",
+                      "destination_address": "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
+                      "status": "COMPLETED",
+                      "tx_hash": "0xa38f12c45e98b71d23ef890214a1253a6b89e71239ab71230dff71238912384a",
+                      "created_at": "2026-09-10T14:20:00Z"
+                    }
+                  ],
+                  "has_more": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/transfers/batch": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "Create Batch Transfer",
+        "description": "Create an atomic multi-destination batch transfer. Supports Idempotency-Key header for retry safety.",
+        "operationId": "createBatchTransferV2",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "Unique UUIDv4 key for idempotent retry safety.",
+            "required": true,
+            "schema": { "type": "string", "format": "uuid" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "wallet_id": "vlt_892341029384",
+                "screening_flag": true,
+                "recipients": [
+                  {
+                    "destination_address": "0x71C7656EC7ab88b098defB751B7401B5f6d8976F",
+                    "amount": "1.500000",
+                    "asset": "ETH"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Batch transfer processing initiated",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "btx_89123049123",
+                  "object": "transfer_batch",
+                  "wallet_id": "vlt_892341029384",
+                  "status": "PROCESSING",
+                  "screening": {
+                    "enabled": true,
+                    "result": "passed",
+                    "screening_id": 14823
+                  },
+                  "total_amount": "1.500000",
+                  "asset": "ETH",
+                  "recipient_count": 1,
+                  "created_at": "2026-09-10T14:25:00Z"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Threat Screening Blocked (RISK_SCREENING_FAILED)"
+          }
+        }
+      }
+    },
+    "/v2/wallets/{wallet_id}/balances": {
+      "get": {
+        "tags": ["Wallets"],
+        "summary": "Retrieve Wallet Balances",
+        "description": "Fetch multi-asset liquid, staked, and pending balances for a specific vault wallet resource.",
+        "operationId": "getWalletBalancesV2",
+        "parameters": [
+          {
+            "name": "wallet_id",
+            "in": "path",
+            "required": true,
+            "description": "Unique vault wallet ID.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Wallet balances fetched successfully",
+            "content": {
+              "application/json": {
+                "example": {
+                  "object": "wallet_balance",
+                  "wallet_id": "vlt_892341029384",
+                  "vault_name": "Primary Hot Exchange Vault",
+                  "balances": [
+                    {
+                      "asset": "ETH",
+                      "total_balance": "150.750000",
+                      "available_balance": "148.500000",
+                      "staked_balance": "0.000000",
+                      "pending_withdrawals": "2.250000"
+                    },
+                    {
+                      "asset": "SOL",
+                      "total_balance": "10500.000000",
+                      "available_balance": "500.000000",
+                      "staked_balance": "10000.000000",
+                      "pending_withdrawals": "0.000000"
+                    }
+                  ],
+                  "updated_at": "2026-09-10T14:26:10Z"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SendManyTransactionRequest": {
+        "type": "object",
+        "required": ["wallet", "transactions"],
+        "properties": {
+          "wallet": {
+            "type": "object",
+            "required": ["coin", "walletId"],
+            "properties": {
+              "coin": { "type": "string", "example": "eth" },
+              "walletId": { "type": "integer", "example": 14999 },
+              "transactionType": { "type": "string", "enum": ["transfer", "enableToken"], "default": "transfer" },
+              "allToken": { "type": "boolean", "default": false }
+            }
+          },
+          "transactions": {
+            "type": "object",
+            "required": ["recipientsData"],
+            "properties": {
+              "recipientsData": {
+                "type": "object",
+                "required": ["recipients", "sequenceId"],
+                "properties": {
+                  "recipients": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["address", "amount"],
+                      "properties": {
+                        "address": { "type": "string", "example": "0x017208E63ec387461C7e8f20bA9C6F9Dec939cfe" },
+                        "amount": { "type": "string", "example": "0.008" }
+                      }
+                    }
+                  },
+                  "sequenceId": { "type": "string", "example": "08d5893b-0066-4619-b7af-a5bae54205d5" }
+                }
+              }
+            }
+          },
+          "screeningFlag": { "type": "boolean", "default": false },
+          "feeLevel": { "type": "string", "enum": ["slow", "market", "aggressive", "custom"] }
+        }
+      },
+      "SendManyTransactionResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean", "example": true },
+          "data": {
+            "type": "object",
+            "properties": {
+              "transactionSequenceId": { "type": "integer", "example": 597856 },
+              "sequenceId": { "type": "string", "example": "124056b0-fba1-42dc-9595-012537de5ba3" },
+              "status": { "type": "integer", "example": 1 },
+              "screeningResult": { "type": "string", "example": "passed" }
+            }
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean", "example": false },
+          "message": { "type": "string", "example": "Validation failure" }
+        }
+      },
+      "ThreatScreeningErrorResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean", "example": false },
+          "message": { "type": "string", "example": "This address is involved in activities that resemble malicious and fraudulent behaviour patterns." },
+          "code": { "type": "string", "example": "RISK_SCREENING_FAILED" },
+          "data": {
+            "type": "object",
+            "properties": {
+              "error": {
+                "type": "object",
+                "properties": {
+                  "destinationAddress": { "type": "string", "example": "0x35febC10112302e0d69F35F42cCe85816f8745CA" },
+                  "screeningResult": { "type": "string", "example": "block" },
+                  "riskScore": { "type": "integer", "example": 99 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

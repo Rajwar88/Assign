@@ -1,0 +1,16 @@
+# Liminal Technical Writer Candidate Assignment — AI & LLM Index
+
+> This document provides an index of all technical documentation pages, API endpoints, OpenAPI 3.0 schemas, and guides in this repository for AI coding assistants and LLM agents.
+
+## Assignment Documentation Pages
+
+- [Landing Page & Overview](index.md): Executive summary of the candidate submission.
+- [Q1: API Reference Update — /send-many-transaction](q1-api-documentation.md): POST /api/wallet/send-many-transaction parameter update, Cube3 threat screening integration, and HTTP 422 error schema.
+- [Q2: Solana Staking Guide Audit & Rewrite](q2-solana-staking-guide.md): 8-point audit matrix, Figment validator integration (~6.42% APY), Rewards Calculator, and 3-step Liminal Vaults walkthrough.
+- [Q3: RESTful API Redesign](q3-rest-api-redesign.md): Non-REST anti-pattern audit, RESTful URIs (/v2/transfers, /v2/transfers/batch, /v2/wallets/{wallet_id}/balances), Idempotency-Key header, and RFC 7807 problem details.
+- [Q4: Work Samples & Portfolio](q4-portfolio-samples.md): Prakash Chand Rajwar's live portfolio (prakash92.netlify.app), Freight Audit & Pay guide, EDI 210/310 mappings, and Docs-as-Code CI/CD pipeline.
+- [Deployment & Setup Guide](deployment-guide.md): MkDocs Material local dev server and GitHub Pages setup.
+
+## OpenAPI Specification File
+
+- [OpenAPI 3.0 Specification](../openapi.json): Standalone OpenAPI 3.0.0 JSON specification for Liminal API endpoints.
