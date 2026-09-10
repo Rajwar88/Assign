@@ -713,8 +713,8 @@
 <tr>
 <td style="text-align: center;"><strong>1</strong></td>
 <td style="text-align: left;"><strong>Prerequisites &amp; Rent-Exempt Reserve</strong></td>
-<td style="text-align: left;">Does not specify that Solana requires a <strong>Rent-Exempt Minimum Reserve</strong> (~0.00228288 SOL) per stake account, plus transaction fee buffer (~0.005 SOL). Users attempting to stake 100% of their balance experience silent transaction failures.</td>
-<td style="text-align: left;">Add a prominent <strong>Prerequisites Checklist</strong> explicitly detailing mandatory minimum un-staked SOL reserves required for stake account creation and gas fees.</td>
+<td style="text-align: left;">Does not specify that Solana requires an exact <strong>Rent-Exempt Minimum Reserve</strong> (<code>0.00228288 SOL</code>, ~<code>0.0023 SOL</code>) per stake account, plus gas fee buffer (~<code>0.005 SOL</code>). Users attempting to stake 100% of their balance experience silent transaction failures.</td>
+<td style="text-align: left;">Add a prominent <strong>Prerequisites Checklist</strong> explicitly detailing mandatory minimum un-staked SOL reserves (<code>0.00228288 SOL</code>) required for stake account creation and gas fees.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>2</strong></td>
@@ -726,25 +726,25 @@
 <td style="text-align: center;"><strong>3</strong></td>
 <td style="text-align: left;"><strong>Multi-Sig &amp; Cold Vault Quorum Workflow</strong></td>
 <td style="text-align: left;">Cold storage and MPC vaults require multi-signature approval. The original guide treats staking as a single-click action, confusing institutional users whose vaults require threshold signoffs from secondary keyholders.</td>
-<td style="text-align: left;">Detail the <strong>Multi-Sig Quorum Approval Workflow</strong>, explaining how initiators and co-signers approve requests via the Vaults web platform and Mobile Co-Signer App.</td>
+<td style="text-align: left;">Detail the <strong>Multi-Sig Quorum Approval Workflow</strong>, explaining how initiators and co-signers approve requests via the Vaults web platform and Vaults Mobile App.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>4</strong></td>
 <td style="text-align: left;"><strong>Validator Partner &amp; Commission Transparency</strong></td>
-<td style="text-align: left;">Lacks clarity on the integrated validator partner (<strong>Figment</strong>), omitting details on validator commission rates, Figment Terms of Service acceptance, and reward yields (~6.42% APY).</td>
-<td style="text-align: left;">Provide explicit <strong>Figment Validator Integration</strong> guidance, including mandatory TOS signoff and yield expectations.</td>
+<td style="text-align: left;">Lacks clarity on the integrated validator partner (<strong>Figment</strong>), omitting details on validator commission rates, Figment Terms of Service acceptance, and net reward yields (~6.42% APY).</td>
+<td style="text-align: left;">Provide explicit <strong>Figment Validator Integration</strong> guidance, including mandatory TOS signoff, commission deduction disclosure, and yield expectations.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>5</strong></td>
 <td style="text-align: left;"><strong>De-delegation &amp; Unbonding Procedure</strong></td>
-<td style="text-align: left;">Focuses solely on <em>initiating</em> a stake, omitting instructions for <strong>Unstaking (De-delegating)</strong>, the 2-day cool-down epoch period, and withdrawing principal + rewards back to the main wallet.</td>
-<td style="text-align: left;">Add a complete <strong>Section for De-delegation &amp; Withdrawals</strong>, detailing cool-down timing and rent-exempt SOL reclamation.</td>
+<td style="text-align: left;">Focuses solely on <em>initiating</em> a stake, omitting instructions for <strong>Unstaking (De-delegating)</strong>, the 2-day cool-down epoch period, and withdrawing principal + rewards + rent reclamation.</td>
+<td style="text-align: left;">Add a complete <strong>Section for De-delegation &amp; Withdrawals</strong>, detailing cool-down timing and <code>0.00228288 SOL</code> rent-exempt reserve reclamation.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>6</strong></td>
 <td style="text-align: left;"><strong>Visual Step-by-Step UI Guidance</strong></td>
 <td style="text-align: left;">Uses placeholder images or lacks clear UI screenshots with callout indicators for Liminal Vaults navigation.</td>
-<td style="text-align: left;">Incorporate authentic <strong>Liminal UI Screenshots</strong> for wallet enablement, account creation, mobile co-signing, and delegation.</td>
+<td style="text-align: left;">Incorporate authentic <strong>Liminal UI Screenshots</strong> with descriptive placeholders for wallet enablement, account creation, mobile co-signing, and delegation.</td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>7</strong></td>
@@ -756,7 +756,7 @@
 <td style="text-align: center;"><strong>8</strong></td>
 <td style="text-align: left;"><strong>Troubleshooting &amp; Error Recovery</strong></td>
 <td style="text-align: left;">Contains no troubleshooting table for common UI errors (e.g. <code>Single staking process limit</code>, <code>Insufficient SOL for Stake Account creation</code>, <code>Pending Co-Signer Timeout</code>).</td>
-<td style="text-align: left;">Add a comprehensive <strong>Troubleshooting &amp; FAQ</strong> reference table at the end of the guide.</td>
+<td style="text-align: left;">Add a comprehensive <strong>Troubleshooting &amp; Common Misconceptions</strong> reference table at the end of the guide.</td>
 </tr>
 </tbody>
 </table>
@@ -769,10 +769,13 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Validator Partner: Figment
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Last Updated: September 2026
 </span></code></pre></div>
+<blockquote>
+<p><em>Note: UI screenshots referenced in this guide are sourced from existing Liminal Vaults documentation and will update automatically upon brand/theme refreshes.</em></p>
+</blockquote>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Liminal’s Staking Hub allows institutional exchanges to stake SOL directly from warm MPC and cold vaults. Staking SOL enables you to earn network inflation rewards (<strong>~6.42% APY</strong> powered by <strong>Figment</strong>) while retaining full multi-signature custody of your underlying private keys.</p>
 <p>Key staking parameters:
-- <strong>Reward Rate</strong>: ~6.42% APR (subject to network inflation dynamics).
+- <strong>Reward Rate</strong>: ~6.42% APY (subject to network inflation dynamics and validator commission).
 - <strong>Reward Credit Frequency</strong>: Every ~2 days (at epoch boundaries).
 - <strong>Unbonding Period</strong>: ~2 days (cool-down epoch before withdrawal).
 - <strong>Compounding</strong>: Rewards automatically compound within your dedicated Stake Account.</p>
@@ -780,10 +783,16 @@
 <p class="admonition-title">Custody Safety &amp; Multi-Sig Rules</p>
 <ul>
 <li><strong>No Custody Loss</strong>: Liminal never acquires or retains custody of your staked assets at any time.</li>
-<li><strong>Single Process Rule</strong>: You can initiate only <strong>one staking process</strong> for a wallet at a time.</li>
-<li><strong>Immutable Stake Amount</strong>: Once staked, the delegation amount cannot be modified; additional stakes require a new staking account.</li>
+<li><strong>Single Process Limit</strong>: You can initiate only <strong>one pending staking initiation request</strong> per wallet at a time. Once approved by quorum, subsequent requests can be initiated.</li>
+<li><strong>Immutable Stake Amount</strong>: Once delegated, a stake account's delegated amount cannot be modified; additional stakes require creating a new staking account.</li>
 </ul>
 </div>
+<hr />
+<h2 id="validator-partner-commission-details">Validator Partner &amp; Commission Details<a class="headerlink" href="#validator-partner-commission-details" title="Permanent link">&para;</a></h2>
+<p>Liminal integrates natively with <strong>Figment</strong>, an enterprise-grade validator infrastructure provider:
+- <strong>Validator</strong>: Figment (<code>Figment Validator Node</code>).
+- <strong>Commission Deduction</strong>: Figment's validator commission is automatically deducted from gross network inflation rewards prior to crediting. The displayed <strong>~6.42% APY</strong> reflects net estimated yield.
+- <strong>Terms of Service</strong>: Accept Figment's TOS during initial wallet enablement.</p>
 <hr />
 <h2 id="solana-rewards-calculator">Solana Rewards Calculator<a class="headerlink" href="#solana-rewards-calculator" title="Permanent link">&para;</a></h2>
 <p>Before delegating assets, you can calculate projected yields using the built-in <strong>Liminal Rewards Calculator</strong>:</p>
@@ -795,16 +804,22 @@
 <li><strong>Amount of Tokens</strong>: Enter your intended staking volume (e.g., <code>1,000 SOL</code>).</li>
 <li><strong>Staking Duration</strong>: Set target lockup period (e.g., <code>365 Days</code>).</li>
 <li><strong>Price of Asset</strong>: Enter current market price in USD.</li>
-<li><strong>Rewards Rate (APR)</strong>: Set network APR (~6.42%).</li>
+<li><strong>Rewards Rate (APR %)</strong>: Pre-populated with current Figment network yield (~6.42%), but editable for custom multi-year projection modeling.</li>
 <li>The panel displays projected total rewards in both USD equivalent and native SOL.</li>
 </ol>
-<p><img alt="Liminal Rewards Calculator" src="https://files.readme.io/08d598befd6468309f501b8d1e8fd58e4d1eb5dcbbb078541ae9ca447ff94628-image.png" /></p>
+<p><em>[UI Screenshot: Liminal Rewards Calculator Panel]</em>
+<img alt="Liminal Rewards Calculator" src="https://files.readme.io/08d598befd6468309f501b8d1e8fd58e4d1eb5dcbbb078541ae9ca447ff94628-image.png" /></p>
 <hr />
 <h2 id="solana-stake-account-lifecycle">Solana Stake Account Lifecycle<a class="headerlink" href="#solana-stake-account-lifecycle" title="Permanent link">&para;</a></h2>
 <p>Solana does not stake tokens directly from your primary vault address. Instead, Liminal creates a dedicated on-chain <strong>Stake Account</strong> funded by your wallet and delegates it to the Figment validator node.</p>
 <pre class="mermaid"><code>stateDiagram-v2
-    [*] --&gt; Inactive: Fund &amp; Create Stake Account
-    Inactive --&gt; Activating: Delegate to Figment (Submit Tx)
+    [*] --&gt; Funded_Undelegated: Step 2: Fund &amp; Create Stake Account
+    note right of Funded_Undelegated
+      Funded (Undelegated) State
+      SOL transferred from Main Wallet to Stake Account.
+      Includes 0.00228288 SOL rent-exempt reserve.
+    end note
+    Funded_Undelegated --&gt; Activating: Step 3: Delegate to Figment (Submit Tx)
     note right of Activating
       Warm-Up Period: ~2 Days (1 Epoch)
       No yield earned during activation.
@@ -819,16 +834,20 @@
       Cool-Down Period: ~2 Days (1 Epoch)
       Tokens locked until epoch completes.
     end note
-    Deactivating --&gt; Inactive: Cool-Down Complete
-    Inactive --&gt; [*]: Withdraw Principal + Yield to Main Wallet</code></pre>
+    Deactivating --&gt; Inactive_Withdrawable: Cool-Down Complete
+    note right of Inactive_Withdrawable
+      Inactive (Withdrawable) State
+      Principal + Rewards ready for transfer.
+    end note
+    Inactive_Withdrawable --&gt; [*]: Withdraw Funds &amp; Reclaim Rent (0.00228288 SOL)</code></pre>
 <hr />
 <h2 id="prerequisites-checklist">Prerequisites Checklist<a class="headerlink" href="#prerequisites-checklist" title="Permanent link">&para;</a></h2>
 <p>Before initiating a Solana staking transaction, verify your vault setup:</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Staking Enabled for Org</strong>: Confirm your organisation has enabled Solana staking with Liminal (<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#97;&#108;&#101;&#115;&#64;&#108;&#109;&#110;&#108;&#46;&#97;&#112;&#112;">&#115;&#97;&#108;&#101;&#115;&#64;&#108;&#109;&#110;&#108;&#46;&#97;&#112;&#112;</a>).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Rent-Exempt Reserve</strong>: Maintain at least <strong>~0.0023 SOL</strong> un-staked in the main wallet for on-chain stake account rent exemption.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Gas Fee Reserve</strong>: Preserve an additional <strong>~0.005–0.01 SOL</strong> in liquid balance for future de-delegation and withdrawal gas fees.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Signing Quorum Ready</strong>: For MPC and multi-sig wallets, ensure required threshold initiators and signers are available to approve transaction requests via web or mobile app.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Rent-Exempt Reserve</strong>: Maintain the exact <strong><code>0.00228288 SOL</code></strong> (~<code>0.0023 SOL</code>) un-staked reserve per stake account in the main wallet.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Gas Fee Buffer</strong>: Preserve an additional <strong>~0.005 SOL</strong> (recommended <strong>0.01 SOL</strong> liquid balance) for multi-sig approvals, de-delegation, and withdrawal transactions.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Signing Quorum Ready</strong>: For MPC and multi-sig wallets, ensure required threshold initiators (Web) and signers (Vaults Mobile App) are available.</li>
 </ul>
 <hr />
 <h2 id="step-by-step-staking-guide">Step-by-Step Staking Guide<a class="headerlink" href="#step-by-step-staking-guide" title="Permanent link">&para;</a></h2>
@@ -844,10 +863,11 @@
 <li>Enter your <strong>Two-Factor Authentication (2FA)</strong> code and select <strong>Continue</strong>.</li>
 <li>Refresh the page to confirm the wallet is enabled for SOL staking.</li>
 </ol>
-<p><img alt="Enable Staking for Solana Wallet" src="https://files.readme.io/efe9410f0a18eed444327b426b662aa4c4ba21852cacc40a3f163ad5db79cf81-image.png" /></p>
+<p><em>[UI Screenshot: Enable Staking for Solana Wallet]</em>
+<img alt="Enable Staking for Solana Wallet" src="https://files.readme.io/efe9410f0a18eed444327b426b662aa4c4ba21852cacc40a3f163ad5db79cf81-image.png" /></p>
 <hr />
-<h3 id="step-2-create-an-on-chain-staking-account">Step 2: Create an On-Chain Staking Account<a class="headerlink" href="#step-2-create-an-on-chain-staking-account" title="Permanent link">&para;</a></h3>
-<p>A staking account is a dedicated sub-account created within your Solana wallet to manage staked funds, accumulate rewards, and process withdrawals.</p>
+<h3 id="step-2-create-an-on-chain-staking-account-funding-phase">Step 2: Create an On-Chain Staking Account (Funding Phase)<a class="headerlink" href="#step-2-create-an-on-chain-staking-account-funding-phase" title="Permanent link">&para;</a></h3>
+<p>In this step, you create and fund a dedicated stake sub-account. <strong>SOL is transferred from your main wallet into the new stake account</strong>, including the mandatory <code>0.00228288 SOL</code> rent-exempt reserve.</p>
 <ol>
 <li>In the <strong>Staking</strong> dashboard, expand the <strong>SOL</strong> asset row.</li>
 <li>Select <strong>Create Account</strong>.</li>
@@ -856,48 +876,55 @@
 <li><strong>Note</strong>: Add a transaction description for auditing purposes.</li>
 <li>Select <strong>Next</strong> &gt; <strong>Sign</strong>.</li>
 </ol>
-<p><img alt="Create Staking Account Modal" src="https://files.readme.io/ca4961c033b673343b113f72d3e0af7810e9c605e20454557c43b53fc2c8678d-image.png" /></p>
+<p><em>[UI Screenshot: Create Staking Account Modal]</em>
+<img alt="Create Staking Account Modal" src="https://files.readme.io/ca4961c033b673343b113f72d3e0af7810e9c605e20454557c43b53fc2c8678d-image.png" /></p>
 <ol>
 <li><strong>Multi-Sig Quorum Signoff</strong>:</li>
-<li><strong>Initiators</strong>: Log into Vaults web, find the pending transaction under <strong>Pending Actions</strong>, select <strong>Approve</strong>, and enter 2FA.</li>
+<li><strong>Initiators</strong>: Log into Vaults Web, find the pending transaction under <strong>Pending Actions</strong>, select <strong>Approve</strong>, and enter 2FA.</li>
 <li><strong>Signers</strong>: Log into the <strong>Vaults Mobile App</strong>, locate the notification under <strong>Pending Approvals</strong>, and tap <strong>Approve</strong>.</li>
 </ol>
+<p><em>[UI Screenshot: Vaults Mobile App Approval]</em></p>
 <div align="center">
   <img width="300" src="https://files.readme.io/c9a133d02610f84a12e0474e72e659ed1d95b4afeeee7e32275a3fdc6c7983d9-Screenshot_20241028-155948.png" alt="Vaults Mobile App Approval" />
 </div>
 
-<p>Once quorum signoff is complete, the SOL amount is transferred to your newly created staking account.</p>
+<p>Once quorum signoff is complete, the SOL amount is transferred to your newly created <code>Funded (Undelegated)</code> staking account.</p>
 <hr />
-<h3 id="step-3-stake-solana-assets-delegate-to-figment">Step 3: Stake Solana Assets (Delegate to Figment)<a class="headerlink" href="#step-3-stake-solana-assets-delegate-to-figment" title="Permanent link">&para;</a></h3>
-<p>Once the staking account is created and funded, delegate the assets to Figment:</p>
+<h3 id="step-3-stake-solana-assets-delegation-phase">Step 3: Stake Solana Assets (Delegation Phase)<a class="headerlink" href="#step-3-stake-solana-assets-delegation-phase" title="Permanent link">&para;</a></h3>
+<p>In this step, you lock and <strong>delegate the funded stake account</strong> to the Figment validator node to begin earning rewards.</p>
 <ol>
 <li>Go to <strong>Staking</strong> and expand the <strong>SOL</strong> asset.</li>
-<li>Locate your newly created staking account and select <strong>Stake</strong>.</li>
+<li>Locate your newly created <code>Funded</code> staking account and select <strong>Stake</strong>.</li>
 <li>In the <strong>Note</strong> field, enter a description and click <strong>Next</strong>.</li>
 <li>Click <strong>Sign</strong> and enter your 2FA code.</li>
-<li>Complete the threshold multi-sig approval via Vaults Web / Mobile App as performed in Step 2.</li>
+<li>Complete threshold multi-sig approval via Vaults Web / Vaults Mobile App as performed in Step 2.</li>
 </ol>
-<p><img alt="Stake Solana Assets Delegation" src="https://files.readme.io/2f5f3b547bab9e009709c4e5adf90e85275b736393fd475a8063ac1ef3cf3b36-image.png" /></p>
+<p><em>[UI Screenshot: Stake Solana Assets Delegation]</em>
+<img alt="Stake Solana Assets Delegation" src="https://files.readme.io/2f5f3b547bab9e009709c4e5adf90e85275b736393fd475a8063ac1ef3cf3b36-image.png" /></p>
 <ol>
 <li>Upon successful broadcast, the staking balance displays as <strong>Activating</strong>. </li>
 <li>After ~2 days (epoch shift), the status updates to <strong>Active</strong>, and inflation rewards begin compounding automatically.</li>
 </ol>
+<div class="admonition tip">
+<p class="admonition-title">Fallback Path: What if Delegation Fails?</p>
+<p>If delegation fails due to temporary network congestion or validator downtime, <strong>your SOL remains safely funded in the stake account</strong>. You do not need to re-create the account; simply return to <strong>Staking</strong>, select the account, and click <strong>Stake</strong> to retry delegation.</p>
+</div>
 <hr />
 <h2 id="unstaking-de-delegating-principal-withdrawal">Unstaking (De-delegating) &amp; Principal Withdrawal<a class="headerlink" href="#unstaking-de-delegating-principal-withdrawal" title="Permanent link">&para;</a></h2>
 <p>When you wish to return staked SOL back to your main liquid wallet balance:</p>
 <ol>
 <li>Navigate to <strong>Staking</strong> &gt; expand <strong>SOL</strong>.</li>
 <li>Locate the target active staking account and click <strong>Unstake (De-delegate)</strong>.</li>
-<li>Sign and complete multi-sig approval. Status shifts to <strong>Deactivating</strong>.</li>
+<li>Sign and complete multi-sig approval via Vaults Web / Vaults Mobile App. Status shifts to <strong>Deactivating</strong>.</li>
 <li><strong>Cool-Down Period</strong>: Wait approximately <strong>2 days</strong> (until the current Solana epoch ends).</li>
-<li>Once the status updates to <strong>Inactive</strong>, select <strong>Withdraw</strong> to transfer the principal + accrued rewards back into your main wallet account.</li>
+<li><strong>Withdraw &amp; Rent Reclamation</strong>: Once the status updates to <strong>Inactive (Withdrawable)</strong>, select <strong>Withdraw</strong>. This transfers principal + accrued rewards back into your main wallet and <strong>reclaims the 0.00228288 SOL rent-exempt reserve</strong>.</li>
 </ol>
 <hr />
-<h2 id="troubleshooting-common-support-inquiries">Troubleshooting &amp; Common Support Inquiries<a class="headerlink" href="#troubleshooting-common-support-inquiries" title="Permanent link">&para;</a></h2>
+<h2 id="troubleshooting-common-misconceptions">Troubleshooting &amp; Common Misconceptions<a class="headerlink" href="#troubleshooting-common-misconceptions" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Issue / Error Message</th>
+<th style="text-align: left;">Issue / User Misconception</th>
 <th style="text-align: left;">Root Cause</th>
 <th style="text-align: left;">Resolution Step</th>
 </tr>
@@ -905,7 +932,7 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><code>Insufficient SOL for Rent Exemption</code></td>
-<td style="text-align: left;">Attempted to stake entire wallet balance without leaving reserve for stake account creation (~0.0023 SOL).</td>
+<td style="text-align: left;">Attempted to stake entire wallet balance without leaving reserve for stake account creation (<code>0.00228288 SOL</code>).</td>
 <td style="text-align: left;">Reduce stake amount to leave at least 0.01 SOL liquid balance in the main wallet.</td>
 </tr>
 <tr>
@@ -924,7 +951,7 @@
 <td style="text-align: left;">Re-initiate transaction and ensure co-signers approve via the Vaults Mobile App.</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>Rewards not in Main Wallet</code></td>
+<td style="text-align: left;"><em>Misconception: Rewards not in Main Wallet</em></td>
 <td style="text-align: left;">Rewards accumulate directly inside the Stake Account, not liquid wallet balance.</td>
 <td style="text-align: left;">Staked balance grows inside the Stake Account. Funds return to main wallet upon de-delegation &amp; withdrawal.</td>
 </tr>
