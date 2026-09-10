@@ -31,7 +31,7 @@ An automated GitHub Actions workflow file is included in `.github/workflows/depl
     ```
 
 2. **Configure GitHub Repository Settings**:
-    - Go to your repository on GitHub: `https://github.com/YOUR_GITHUB_USERNAME/Assignment_LM`.
+    - Go to your repository on GitHub: `https://github.com/Rajwar88/Assign`.
     - Click **Settings** > **Pages** (under Code and automation).
     - Under **Build and deployment**:
         - **Source**: Select `Deploy from a branch` (or `GitHub Actions`).
@@ -40,7 +40,7 @@ An automated GitHub Actions workflow file is included in `.github/workflows/depl
 
 3. **Verify Deployment**:
     Once the GitHub Action completes, your site will be live at:
-    `https://YOUR_GITHUB_USERNAME.github.io/Assignment_LM/`
+    `https://rajwar88.github.io/Assign/`
 
 ---
 
