@@ -1,21 +1,21 @@
-# Liminal Technical Writer Candidate Assignment
+# Liminal Technical Writer Evaluation Submission
 
-Welcome to the **Liminal Technical Writer Assignment & WebHelp Portal**. This interactive documentation suite presents solutions for the Liminal Technical Writer Evaluation Assignment, hosted as a production-ready documentation site using **MkDocs Material** and deployed live via **GitHub Pages**.
-
----
-
-## Executive Evaluation Matrix & Task Deliverables
-
-| Task # | Evaluated Topic | Primary Deliverables | Key Architectural / Documentation Highlights | Status |
-| :---: | :--- | :--- | :--- | :---: |
-| **Q1** | **API Endpoint Update** *(Cube3 Risk Screening)* | [Q1 API Reference](q1-api-documentation.md) | Standardized **HTTP 400 Bad Request** threat rejections for Risk Score > 80; documented `screeningFlag` parameter; array-based error schema returning first blocked address details. | <span class="status-badge status-200">100% Complete</span> |
-| **Q2** | **Solana Staking Audit & Rewrite** | [Q2 Audit & Guide](q2-solana-staking-guide.md) | 8-point usability audit matrix; exact `0.00228288 SOL` rent-exempt reserve checklist; Mermaid epoch state diagram (`Funded` -> `Activating` -> `Active` -> `Deactivating` -> `Inactive/Withdrawable`); Figment commission disclosure; rent reclamation details. | <span class="status-badge status-200">100% Complete</span> |
-| **Q3** | **RESTful API Redesign** | [Q3 REST Redesign](q3-rest-api-redesign.md)<br>• [GET /v2/transfers/{tx_id}](q3-1-get-transfers.md)<br>• [POST /v2/transfers/batch](q3-2-send-transactions.md)<br>• [GET /v2/wallets/{id}/balances](q3-3-get-balances.md) | Single transfer lookup (`GET /v2/transfers/{tx_id}`) + collection listing; batch transfer with root-level `asset` and `Idempotency-Key` headers; hierarchical wallet balances; complete OpenAPI 3.0.0 spec; phased deprecation Gantt chart. | <span class="status-badge status-200">100% Complete</span> |
-| **Q4** | **Work Samples & Portfolio** | [Q4 Portfolio Showcase](q4-portfolio-samples.md) | Highlights top public GitHub repositories ([`docs-cycle-time-metrics`](https://github.com/Rajwar88/docs-cycle-time-metrics), [`docs-prioritization-engine`](https://github.com/Rajwar88/docs-prioritization-engine), [`Technical-Writing-Portfolio`](https://github.com/Rajwar88/Technical-Writing-Portfolio)), live FAP guide, EDI 210/310 mapping, and CarrierGo user guide. | <span class="status-badge status-200">100% Complete</span> |
+This portal contains the complete evaluation submission for Liminal's Technical Writer assignment. All documentation is written in GitHub Flavored Markdown, rendered via **MkDocs Material**, and hosted on **GitHub Pages**.
 
 ---
 
-## Assignment Navigation Hub
+## Deliverables & Evaluation Matrix
+
+| Task | Topic | Key Deliverables | Highlights & Specification Rules |
+| :---: | :--- | :--- | :--- |
+| **Q1** | **API Endpoint Update** | [Q1 API Reference](q1-api-documentation.md) | Documented `screeningFlag` body parameter for Cube3 risk screening. Standardized threat rejections (Risk Score > 80) to **HTTP 400 Bad Request** returning first blocked address error array. Added XRP/Stellar `enableToken` trust line guidelines. |
+| **Q2** | **Solana Staking Audit & Rewrite** | [Q2 Audit & Guide](q2-solana-staking-guide.md) | 8-point audit matrix identifying gaps in the original guide. Rewrote step-by-step staking operations with exact `0.00228288 SOL` rent-exempt reserve, 5-stage Mermaid state machine, Figment commission disclosures, and rent reclamation procedures. |
+| **Q3** | **RESTful API Redesign** | [Q3 REST Redesign](q3-rest-api-redesign.md)<br>• [GET /v2/transfers/{tx_id}](q3-1-get-transfers.md)<br>• [POST /v2/transfers/batch](q3-2-send-transactions.md)<br>• [GET /v2/wallets/{id}/balances](q3-3-get-balances.md) | Redesigned 3 legacy endpoints into RESTful URIs. Documented single transfer lookup (`GET /v2/transfers/{tx_id}`), batch payouts with `Idempotency-Key` headers, hierarchical wallet balances, full OpenAPI 3.0.0 schema, and deprecation roadmap. |
+| **Q4** | **Work Samples & Portfolio** | [Q4 Portfolio Showcase](q4-portfolio-samples.md) | Featured public GitHub repositories ([`docs-cycle-time-metrics`](https://github.com/Rajwar88/docs-cycle-time-metrics), [`docs-prioritization-engine`](https://github.com/Rajwar88/docs-prioritization-engine), [`Technical-Writing-Portfolio`](https://github.com/Rajwar88/Technical-Writing-Portfolio)), enterprise Freight Audit & Pay guide, EDI 210/310 specs, and CarrierGo manual. |
+
+---
+
+## Assignment Navigation
 
 <div class="grid cards" markdown>
 
@@ -23,7 +23,7 @@ Welcome to the **Liminal Technical Writer Assignment & WebHelp Portal**. This in
 
     ---
 
-    Documentation update for `/sendmanytransaction` incorporating `cube3` threat screening, `screeningFlag` body parameters, `201 Created` success schemas, and atomic `400 Bad Request` rejection rules for high-risk addresses (> 80 risk score).
+    API specification for `/sendmanytransaction` incorporating `cube3` threat screening, `screeningFlag` parameter, `201 Created` success payloads, and atomic `400 Bad Request` rejections for high-risk addresses.
 
     [:octicons-arrow-right-24: View Q1 API Reference](q1-api-documentation.md)
 
@@ -31,7 +31,7 @@ Welcome to the **Liminal Technical Writer Assignment & WebHelp Portal**. This in
 
     ---
 
-    8-point usability audit of Liminal's Solana Staking Guide, accompanied by a complete step-by-step rewritten developer and customer guide with state diagrams and troubleshooting tables.
+    8-point usability audit of Liminal's Solana Staking Guide, accompanied by a step-by-step rewritten developer and customer guide with state diagrams and troubleshooting tables.
 
     [:octicons-arrow-right-24: View Q2 Audit & Guide](q2-solana-staking-guide.md)
 
@@ -39,7 +39,7 @@ Welcome to the **Liminal Technical Writer Assignment & WebHelp Portal**. This in
 
     ---
 
-    Architectural standardization of 3 non-REST legacy endpoints into resource-oriented RESTful URIs with idempotency, status code matrix, complete OpenAPI specification, and migration strategies.
+    REST architectural redesign of 3 legacy non-REST endpoints into resource-oriented URIs with idempotency headers, status code matrix, OpenAPI specifications, and migration strategies.
 
     [:octicons-arrow-right-24: View Q3 REST Redesign](q3-rest-api-redesign.md)
 
@@ -47,7 +47,7 @@ Welcome to the **Liminal Technical Writer Assignment & WebHelp Portal**. This in
 
     ---
 
-    Selected technical writing samples showcasing GitHub repositories, developer platforms, API references, architecture guides, and developer tooling.
+    Technical writing samples showcasing public GitHub repositories, developer platform documentation, API references, data mapping specs, and developer tooling.
 
     [:octicons-arrow-right-24: View Q4 Portfolio](q4-portfolio-samples.md)
 
@@ -55,33 +55,30 @@ Welcome to the **Liminal Technical Writer Assignment & WebHelp Portal**. This in
 
 ---
 
-## OpenAPI Specification Download & Integration
+## OpenAPI 3.0 Specification Access
 
-The complete machine-readable **OpenAPI 3.0.0 Specification** for this assignment submission is available directly in the repository root:
+The machine-readable OpenAPI 3.0.0 specification file is located in the repository root:
 
-- **OpenAPI File**: [`openapi.json`](file:///c:/Users/rajwa/Downloads/Assign/Assign/openapi.json)
-- **Raw Spec URL**: `https://raw.githubusercontent.com/Rajwar88/Assign/v1.0/openapi.json`
-- **Import Ready**: Compatible with Postman, Swagger UI, Insomnia, and Redoc.
-
----
-
-## Technical Documentation Standards & Principles
-
-All documentation produced in this submission adheres to the following core tenets:
-
-- **Accuracy & Completeness**: Every parameter, header, data type, and error response is explicitly defined without ambiguity.
-- **Developer-First Ergonomics**: Code examples are provided in cURL, Python, Node.js, and Go with copy-paste readiness.
-- **Visual Clarity**: Complex control flows and state transitions are illustrated using **Mermaid sequence & state diagrams**.
-- **Edge Case Governance**: Clear guidance on failure modes, error handling, risk thresholds, and fallback behaviors.
+- **Local Spec File**: [`openapi.json`](file:///c:/Users/rajwa/Downloads/Assign/Assign/openapi.json)
+- **Raw GitHub URL**: `https://raw.githubusercontent.com/Rajwar88/Assign/v1.0/openapi.json`
+- **Compatibility**: Tested for import with Postman, Swagger Editor, and Redoc.
 
 ---
 
-## Quick Site Info & Production Build Guarantee
+## Technical Writing Tenets
 
-| Attribute | Specification |
+- **Precision & Schema Accuracy**: Every parameter, header, data type, and error payload reflects exact API contracts.
+- **Code Readiness**: Code examples in cURL, Python, Node.js, and Go are validated for copy-paste execution.
+- **Visual Control Flows**: Sequence and state diagrams explain complex blockchain lifecycles and epoch warm-up transitions.
+- **Edge Case Coverage**: Guidance on failure modes, error handling, risk score thresholds, and fallback behaviors.
+
+---
+
+## Environment & Build Status
+
+| Property | Value |
 | :--- | :--- |
 | **Documentation Engine** | MkDocs 1.6.1 + MkDocs Material 9.7.6 |
-| **Target Hosting** | GitHub Pages (`gh-pages` branch via GitHub Actions) |
-| **Diagram Engine** | Mermaid.js (Native Markdown integration) |
-| **Build Status** | `mkdocs build --strict` passed cleanly with 0 errors |
+| **Hosting Platform** | GitHub Pages (`gh-pages` branch) |
+| **Build Status** | `mkdocs build --strict` (0 errors, 0 warnings) |
 | **Live Portal URL** | [https://rajwar88.github.io/Assign/](https://rajwar88.github.io/Assign/) |
