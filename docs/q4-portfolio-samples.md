@@ -1,25 +1,69 @@
 # Q4: Technical Writer Work Samples & Portfolio
 
-!!! summary "Live Portfolio Site — Prakash Chand Rajwar"
+!!! summary "Live Portfolio & GitHub Showcase — Prakash Chand Rajwar"
     **Senior Technical Writer**  
+    **GitHub Profile**: [github.com/Rajwar88](https://github.com/Rajwar88)  
     **Live Portfolio**: [https://prakash92.netlify.app/](https://prakash92.netlify.app/)  
     **Experience & Resume**: [prakash92.netlify.app/resume/](https://prakash92.netlify.app/resume/)  
-    **Skills & Certifications**: [prakash92.netlify.app/skills_certs/](https://prakash92.netlify.app/skills_certs/)  
-    **Direct Work Samples**: [prakash92.netlify.app/work-samples/fap-guide/](https://prakash92.netlify.app/work-samples/fap-guide/introduction_to_freight_audit_and_pay/)
+    **Skills & Certifications**: [prakash92.netlify.app/skills_certs/](https://prakash92.netlify.app/skills_certs/)
 
 ---
 
-## Technical Writing Portfolio Matrix
+## Open-Source GitHub Repositories & Engineering Work Samples
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        CORE WRITING SPECIALIZATIONS                    │
-│ ──────────────────────────┬──────────────────────────┬─────────────────┤
-│ REST & Webhook APIs       │ FinTech & Supply Chain   │ System Specs    │
-│ OpenAPI 3.0/3.1           │ EDI 210/310 Mappings     │ Architecture    │
-│ Docs-as-Code CI/CD        │ Python & JSON Scripts    │ User Workflows  │
-└──────────────────────────┴──────────────────────────┴─────────────────┘
-```
+Below are key public GitHub repositories from [github.com/Rajwar88](https://github.com/Rajwar88) highlighting technical writing, Docs-as-Code engineering, tooling, and developer experience projects:
+
+<div class="grid cards" markdown>
+
+-   :material-github: __[Technical Writing Portfolio](https://github.com/Rajwar88/Technical-Writing-Portfolio)__
+
+    ---
+
+    Personal technical writing portfolio built with Docs-as-Code principles, Markdown, and custom CSS styling.
+
+    [:octicons-arrow-right-24: View Repository](https://github.com/Rajwar88/Technical-Writing-Portfolio)
+
+-   :material-chart-timeline: __[Docs Cycle Time Metrics](https://github.com/Rajwar88/docs-cycle-time-metrics)__
+
+    ---
+
+    Python-based telemetry and metrics engine for tracking documentation cycle times, review latency, and publication velocity across Git repositories.
+
+    [:octicons-arrow-right-24: View Repository](https://github.com/Rajwar88/docs-cycle-time-metrics)
+
+-   :material-format-list-checks: __[Docs Prioritization Engine](https://github.com/Rajwar88/docs-prioritization-engine)__
+
+    ---
+
+    Structured framework and prioritization engine for scoring documentation technical debt, developer impact, and documentation backlog items.
+
+    [:octicons-arrow-right-24: View Repository](https://github.com/Rajwar88/docs-prioritization-engine)
+
+-   :material-api: __[Postman API Test Suite](https://github.com/Rajwar88/PostMan)__
+
+    ---
+
+    API collection and test automation suite for validating RESTful endpoint responses, headers, and environment variables.
+
+    [:octicons-arrow-right-24: View Repository](https://github.com/Rajwar88/PostMan)
+
+-   :material-palette-swatch: __[UX Portfolio & Product Design](https://github.com/Rajwar88/UX-Portfolio)__
+
+    ---
+
+    UX case studies, product design specifications, and user workflow wireframes for enterprise platforms.
+
+    [:octicons-arrow-right-24: View Repository](https://github.com/Rajwar88/UX-Portfolio)
+
+-   :material-factory: __[GrainFlow X50 Industrial Docs](https://github.com/Rajwar88/GrainFlow_X50_Project)__
+
+    ---
+
+    Industrial workflow documentation and system architecture guide for IoT grain flow telemetry controllers.
+
+    [:octicons-arrow-right-24: View Repository](https://github.com/Rajwar88/GrainFlow_X50_Project)
+
+</div>
 
 ---
 
@@ -112,20 +156,15 @@ Engineered a complete **Docs-as-Code** continuous integration and deployment pip
 
 ---
 
-## Live Work Samples Directory
+## Work Samples & Repository Directory
 
-| Project Title | Documentation Focus | Direct Live Access |
+| Work Sample / Repository | Focus Area | Access Link |
 | :--- | :--- | :---: |
-| **Freight Audit & Pay Guide** | Enterprise Audit, Data Flows, & Functional Workflows | [View Live Guide](https://prakash92.netlify.app/work-samples/fap-guide/introduction_to_freight_audit_and_pay/) |
-| **Python Invoice JSON Generator** | Automation Script & Payload Specification | [View Python Doc](https://prakash92.netlify.app/work-samples/fap-guide/invoice_create_json/) |
-| **EDI 210/310 Mapping Spec** | X12 EDI Data Element Mapping Matrix | [View EDI Mapping](https://prakash92.netlify.app/work-samples/fap-guide/edi_210_and_310_mapping/) |
-| **CarrierGo User Manual** | Platform Onboarding & Operations | [View CarrierGo Guide](https://prakash92.netlify.app/work-samples/carriergo-guide/IntroductiontoCarrierGo/) |
-| **Prakash's Full Portfolio Site** | Complete Resume, Skills, & Portfolio | [Visit Portfolio Site](https://prakash92.netlify.app/) |
-
----
-
-## Technical Writing Methodologies & Best Practices
-
-1. **Docs-as-Code Workflow**: Writing documentation in Markdown, version-controlled via Git, validated via linters, and deployed automatically via GitHub Actions pipelines.
-2. **Task-Oriented Structure**: Organizing content around specific user goals (e.g. *Rate & Pay*, *Match & Pay*, *Execute & Pay*) with clear prerequisites and step-by-step instructions.
-3. **Automated Verification**: Validating all API request payloads, code snippets, and script parameters against live environments prior to deployment.
+| **Technical Writing Portfolio** | Personal Docs-as-Code WebHelp Site | [GitHub Repo](https://github.com/Rajwar88/Technical-Writing-Portfolio) |
+| **Docs Cycle Time Metrics** | Python Telemetry Engine for Docs Velocity | [GitHub Repo](https://github.com/Rajwar88/docs-cycle-time-metrics) |
+| **Docs Prioritization Engine** | Backlog Prioritization & Technical Debt Engine | [GitHub Repo](https://github.com/Rajwar88/docs-prioritization-engine) |
+| **Freight Audit & Pay Guide** | Enterprise Audit, Data Flows, & Functional Workflows | [Live Guide](https://prakash92.netlify.app/work-samples/fap-guide/introduction_to_freight_audit_and_pay/) |
+| **Python Invoice JSON Generator** | Automation Script & Payload Specification | [Live Script Doc](https://prakash92.netlify.app/work-samples/fap-guide/invoice_create_json/) |
+| **EDI 210/310 Mapping Spec** | X12 EDI Data Element Mapping Matrix | [Live EDI Spec](https://prakash92.netlify.app/work-samples/fap-guide/edi_210_and_310_mapping/) |
+| **CarrierGo User Manual** | Platform Onboarding & Operations | [Live User Manual](https://prakash92.netlify.app/work-samples/carriergo-guide/IntroductiontoCarrierGo/) |
+| **Prakash's Full Portfolio Site** | Complete Resume, Skills, & Portfolio | [Live Site](https://prakash92.netlify.app/) |
